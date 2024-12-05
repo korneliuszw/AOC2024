@@ -21,12 +21,32 @@ impl Solution for Solution1 {
                 }
             }
         }
-        let mut sum = 0;
-        while !map_a.is_empty() {
-            let dist = map_a.pop().unwrap().abs_diff(map_b.pop().unwrap());
-            sum += dist;
+        let part_two = true;
+        if part_two {
+            let mut score = 0;
+            while !map_a.is_empty() {
+                let mut occurs = 0;
+                let a = map_a.pop().unwrap();
+                loop {
+                    let b = *map_b.peek().unwrap();
+                    if b < a {
+                        break;
+                    } else if b == a {
+                        occurs += 1;
+                    }
+                    map_b.pop();
+                }
+                score += a * occurs;
+            }
+            writeln!(writer, "{}", score).unwrap();
+        } else {
+            let mut sum = 0;
+            while !map_a.is_empty() {
+                let dist = map_a.pop().unwrap().abs_diff(map_b.pop().unwrap());
+                sum += dist;
+            }
+            writeln!(writer, "{}", sum).unwrap();
         }
-        writeln!(writer, "{}", sum).unwrap();
     }
     
 }

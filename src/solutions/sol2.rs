@@ -8,7 +8,7 @@ pub struct Solution2 {}
 impl Solution for Solution2 {
 
     fn solve(&self, reader: &mut dyn BufRead, writer: &mut dyn Write) {
-        let part_two = false;
+        let part_two = true;
         let sum = reader.lines().filter(|v| v.is_ok()).fold(0, |acc, line| {
             let binding = line.unwrap();
             let arr = binding.trim().split_whitespace().map(|x| x.parse::<u32>().unwrap()).collect::<Vec<u32>>();
