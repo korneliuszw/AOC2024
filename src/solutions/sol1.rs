@@ -6,7 +6,7 @@ use crate::defs::Solution;
 pub struct Solution1 {}
 
 impl Solution for Solution1 {
-    fn solve(&self, reader: &mut dyn BufRead, writer: &mut dyn Write) {
+    fn solve(&self, reader: &mut dyn BufRead, writer: &mut dyn Write, part : u32) {
         let mut map_a = BinaryHeap::<u32>::new();
         let mut map_b = BinaryHeap::<u32>::new();
         for line in reader.lines() {
@@ -21,8 +21,7 @@ impl Solution for Solution1 {
                 }
             }
         }
-        let part_two = true;
-        if part_two {
+        if part == 2 {
             let mut score = 0;
             while !map_a.is_empty() {
                 let mut occurs = 0;
