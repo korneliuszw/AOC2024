@@ -7,6 +7,7 @@ fn main() {
     let solution_number = args[1].parse::<u32>().unwrap();
     let solver: Box<dyn Solution> = match solution_number {
         1 => Box::new(solutions::sol1::Solution1 {}),
+        2 => Box::new(solutions::sol2::Solution2 {}),
         _ => {
             panic!("Invalid solution number");
         }
