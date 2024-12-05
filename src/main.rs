@@ -10,6 +10,7 @@ fn main() {
         1 => Box::new(solutions::sol1::Solution1 {}),
         2 => Box::new(solutions::sol2::Solution2 {}),
         3 => Box::new(solutions::sol3::Solution3 {}),
+        4 => Box::new(solutions::sol4::Solution4 {}),
         _ => {
             panic!("Invalid solution number");
         }
